@@ -1,0 +1,22 @@
+--  A VIEW in SQL is a virtual table that was created based on a SQL statement
+--  that was predefined. This is useful if we repeat the same query regularly,
+--  or the same portions of a query (such as if we need access to the results
+--  of a join or aggregate). We can create a join using the syntax
+--      CREATE VIEW view_name AS sql_statement;
+--  Take the following 'Person' table:
+--      | id | firstname | lastname | age |
+--      | -- | --------- | -------- | --- |
+--      | 1  | 'Steve'   | 'Garcia' | 23  |
+--      | 2  | 'Alexa'   | 'Smith'  | 40  |
+--      | 3  | 'Steve'   | 'Jones'  | 29  |
+--      | 4  | 'Brandon' | 'Smith'  | 50  |
+--      | 5  | 'Adam'    | 'Jones'  | 61  |
+--  Let's say that we need to query for employees named 'Steve' regularly, and
+--  also construct more complicated 'Steve' queries regularly, such as 'Steve' with
+--  age > 25. To make these queries easier to construct, we would create a view:
+--      CREATE VIEW steve_view AS SELECT * FROM Person WHERE firstname = 'Steve';
+--  I can then access the view in the same way as I would access a table:
+--      SELECT AVG(age) from steve_view;
+--  TODO: Create a view called "firstname_lastname" from the Person table
+--  that only has the firstname and lastname columns. This view should NOT contain
+--  the id and age columns.
